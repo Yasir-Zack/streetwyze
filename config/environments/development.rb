@@ -11,28 +11,12 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # config.action_mailer.delivery_method = :letter_opener
-  
   config.action_mailer.perform_deliveries = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'rahmanyasir64@gmail.com'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  address:             'smtp.gmail.com',
-  port:                 '587',
-  domain:              'gmail.com',
-  user_name:          'rahmanyasir64@gmail.com',
-  password:            'ugmzojxbdyqwxyhc',
-  authentication:       'plain',
-  enable_starttls_auto: true  }
+  
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp/caching-dev.txt').exist?
@@ -51,11 +35,10 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
-
   config.action_mailer.perform_caching = false
 
+  # Don't care if the mailer can't send.
+ 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -79,4 +62,24 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
+  config.action_mailer.default_options = { from: 'rahmanyasir64@gmail.com' }
+
+  config.action_mailer.smtp_settings = {
+    user_name:      'rahmanyasir64@gmail.com',
+    password:       'vrldesthdavgjbjn',
+    domain:         'gmail.com',
+    address:        'smtp.gmail.com',
+    port:            '587',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 end
