@@ -16,7 +16,6 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp/caching-dev.txt').exist?
@@ -38,7 +37,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Don't care if the mailer can't send.
- 
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -69,17 +68,16 @@ Rails.application.configure do
   config.action_mailer.default_options = { from: 'rahmanyasir64@gmail.com' }
 
   config.action_mailer.smtp_settings = {
-    user_name:      'rahmanyasir64@gmail.com',
-    password:       'vrldesthdavgjbjn',
-    domain:         'gmail.com',
-    address:        'smtp.gmail.com',
-    port:            '587',
+    user_name: 'rahmanyasir64@gmail.com',
+    password: 'vrldesthdavgjbjn',
+    domain: 'gmail.com',
+    address: 'smtp.gmail.com',
+    port: '587',
     authentication: :plain,
     enable_starttls_auto: true
   }
-  
+
   # config.action_mailer.delivery_method = :letter_opener
   # config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
 end
