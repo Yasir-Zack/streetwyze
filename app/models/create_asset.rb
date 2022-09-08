@@ -1,0 +1,2 @@
+class CreateAsset < ApplicationRecord
+end
