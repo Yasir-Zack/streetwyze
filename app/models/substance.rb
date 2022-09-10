@@ -1,2 +1,0 @@
-class Substance < ApplicationRecord
-end
