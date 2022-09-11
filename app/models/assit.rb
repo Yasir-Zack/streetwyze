@@ -1,0 +1,2 @@
+class Assit < ApplicationRecord
+end
