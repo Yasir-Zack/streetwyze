@@ -64,7 +64,6 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
   config.action_mailer.default_options = { from: 'rahmanyasir64@gmail.com' }
 
   config.action_mailer.smtp_settings = {
@@ -78,6 +77,5 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   }
 
   # config.action_mailer.delivery_method = :letter_opener
-  # config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
