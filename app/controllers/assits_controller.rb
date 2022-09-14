@@ -1,26 +1,28 @@
 class AssitsController < ApplicationController
   def index
-    @assit = Assit.all.order("created_at DESC")
+    @assit = Assit.new
+
+    @assits = Assit.all.order('created_at DESC')
   end
 
   def new
-    @assit= Assit.new
+    @assit = Assit.new
   end
 
-  def create 
-    @assit= Assit.new(assit_params)
-      if @assit.save
-        redirect_to @assit
-      else
-        render 'new'
-      end
+  def create
+    @assit = Assit.new(assit_params)
+    if @assit.save
+      redirect_to @assit
+    else
+      render 'new'
+    end
   end
 
   def show
     @assit = Assit.find(params[:id])
   end
 
-  def update 
+  def update
     @assit = Assit.find(params[:id])
     if @assit.update(assit_params)
       redirect_to @assit
@@ -36,11 +38,12 @@ class AssitsController < ApplicationController
   def destroy
     @assit = assit.find(params[:id])
     @assit.destroy
-    redirect_to posts_path
+    redirect_to assit_path
   end
 
-  private 
+  private
+
   def assit_params
-    params.permit(:place, :address, :category, :story, :rating, :status)
+    params.permit(:place, :address, :category, :story, :rating, :status, images: [])
   end
 end

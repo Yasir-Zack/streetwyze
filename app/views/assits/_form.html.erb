@@ -1,7 +1,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-    <%= form_with model: @assit, url: assits_path, method: :post, local: true  do |f| %>
+    <%= form_with(model: @assit, local: true)  do |f| %>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Create Asset</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -44,6 +44,10 @@
         <div class="field mb-3 text-start">
           <%= f.label :story %>
           <%= f.text_area :story, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="field mb-3 text-start">
+          <%= f.label :Media %>
+          <%= f.file_field :images, onChange: "readURL(this)", multiple: true, class: "form-control" %>
         </div>
       </div>
       <div class="modal-footer">

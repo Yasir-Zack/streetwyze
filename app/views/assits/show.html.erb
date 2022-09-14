@@ -1,16 +1,10 @@
-<h1> Place: <%= @assit.place %></h1>
-<div>
-  Address:  <%= @assit.address %>
-</div>
-<div>
-  ategory: <%= @assit.category %>
-</div>
-<div>
-  Story: <%= @assit.story %>
-</div>
-<div>
-  rating: <%= @assit.rating %>
-</div>
-<div>
-  Status <%= @assit.status %>
+<div class="jumbotron">
+  <h3 class="display-4"> Place : <%= @assit.place %></h3>
+  <p class="lead"> Address : <%= @assit.address %></p>
+  <hr class="my-4">
+  <p> Story : <%= @assit.story %></p>
+  <p> Rating: <%= @assit.rating %></p>
+  <p> Status: <%= @assit.status %></p>
+  <%= image_tag @assit.images.first, style: "width: 100px; height: 100px display: block" if  @assit.images.attached? %>
+  <%= link_to 'All Asset', assits_path, class:'btn btn-secondary'%>
 </div>
