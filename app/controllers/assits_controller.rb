@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Assits Controller
 class AssitsController < ApplicationController
   def index
     @assit = Assit.new
