@@ -1,2 +1,11 @@
 <%= link_to 'Create Asset', new_assit_path, class:'btn btn-secondary' ,'data-bs-toggle':"modal" ,'data-bs-target':"#exampleModal" %>
 <%= render "assits/form" %>
+<h1>Hello, Rails!</h1>
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong><br>
+  <%= link_to 'Edit profile', edit_user_registration_path %>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= button_to "Sign up", new_user_registration_path %> 
+  <%= button_to "Login", new_user_session_path %>
+<% end %>

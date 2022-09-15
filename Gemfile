@@ -4,11 +4,13 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
-
 gem 'bootstrap'
+gem 'devise'
 gem 'jquery-rails'
 gem 'rubocop-rails'
 gem 'select2-rails'
+=======
+>>>>>>> main
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 # Use postgresql as the database for Active Record
@@ -48,6 +50,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener', group: :development
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'

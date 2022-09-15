@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# home Controller
+# HomeController inherit with appllicationController
 class HomeController < ApplicationController
   def index; end
 end
