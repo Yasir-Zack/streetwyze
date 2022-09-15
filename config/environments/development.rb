@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Rails.application.configure do
+Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -10,6 +10,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+
+  config.action_mailer.perform_deliveries = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -32,10 +34,9 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   config.action_mailer.perform_caching = false
+
+  # Don't care if the mailer can't send.
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -60,4 +61,20 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_options = { from: 'rahmanyasir64@gmail.com' }
+
+  config.action_mailer.smtp_settings = {
+    user_name: 'rahmanyasir64@gmail.com',
+    password: 'vrldesthdavgjbjn',
+    domain: 'gmail.com',
+    address: 'smtp.gmail.com',
+    port: '587',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
+  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
