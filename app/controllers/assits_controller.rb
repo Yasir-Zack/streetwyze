@@ -34,19 +34,17 @@ class AssitsController < ApplicationController
     end
   end
 
-  def edit
-    @assit = assit.find(params[:id])
-  end
+  def edit; end
 
   def destroy
-    @assit = assit.find(params[:id])
+    @assit = Assit.find(params[:id])
     @assit.destroy
-    redirect_to assit_path
+    redirect_to @assit	
   end
 
   private
 
   def assit_params
-    params.permit(:place, :address, :category, :story, :rating, :status, images: [])
+    params.require(:assit).permit(:place, :address, :category, :story, :rating, :status, images: [])
   end
 end

@@ -7,8 +7,8 @@
       <tr><p> Rating: <%= assit.rating %></p></tr>
       <tr><p> Status: <%= assit.status %></p></tr>
       <tr>
-      <%= link_to 'Delete Asset'%>
-      <%= link_to 'Edit Asset' %>
+      <%= link_to "Delete Asset", assit_path(assit), method: :destroy ,class:"btn btn-secondary"%> |
+      <%= link_to "Edit Asset", edit_assit_path(assit),class:"btn btn-secondary"%>
       </tr>
       <hr class="my-4">
       <% end %>
