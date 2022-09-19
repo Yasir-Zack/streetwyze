@@ -20,6 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mini_magick', '~> 4.11'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

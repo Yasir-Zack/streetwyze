@@ -5,7 +5,7 @@ class AssitsController < ApplicationController
   def index
     @assit = Assit.new
 
-    @assits = Assit.all.order('created_at DESC')
+    @assits = Assit.order('created_at DESC').page(params[:page])
   end
 
   def new
