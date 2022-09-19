@@ -1,16 +1,18 @@
-<table class="table table-striped table-hover table-bordered">
-  <tbody>
-    <% @assits.each do |assit| %>
-      <tr><h3 class="display-4"> Place : <%= assit.place %></h3></tr>
-      <tr><p class="lead"> Address : <%= assit.address %></p></tr>
-      <tr><p> Story : <%= assit.story %></p></tr>
-      <tr><p> Rating: <%= assit.rating %></p></tr>
-      <tr><p> Status: <%= assit.status %></p></tr>
-      <tr>
-      <%= link_to "Delete Asset", assit_path(assit), method: :destroy ,class:"btn btn-secondary"%> |
-      <%= link_to "Edit Asset", edit_assit_path(assit),class:"btn btn-secondary"%>
-      </tr>
-      <hr class="my-4">
-      <% end %>
-  </tbody>
-</table>
+<div class="container-fluid w-50 border rounded shadow mt-5 mb-3 p-4 text-start">
+  <table class="table table-striped table-hover table-bordered">
+    <tbody>
+      <% @assits.each do |assit| %>
+        <tr><h3 class="display-4"> Place : <%= assit.place %></h3></tr>
+        <tr><p class="lead"> Address : <%= assit.address %></p></tr>
+        <tr><p> Story : <%= assit.story %></p></tr>
+        <tr><p> Rating: <%= assit.rating %></p></tr>
+        <tr><p> Status: <%= assit.status %></p></tr>
+        <tr>
+        <%= link_to "Delete Asset", assit_path(assit), method: :destroy ,class:"btn btn-secondary"%> |
+        <%= link_to "Edit Asset", edit_assit_path(assit),class:"btn btn-secondary"%>
+        </tr>
+        <hr class="my-4">
+        <% end %>
+    </tbody>
+  </table>
+</div>  

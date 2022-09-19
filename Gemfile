@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
+
 gem 'bootstrap'
 gem 'devise'
 gem 'jquery-rails'
@@ -18,6 +19,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'mini_magick', '~> 4.11'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

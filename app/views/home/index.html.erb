@@ -1,6 +1,4 @@
 <% if user_signed_in? %>
   <h1> Wellcome To Streetwyze</h1>
   Logged in as <strong><%= current_user.email %></strong><br>
-  <%= link_to 'Create Asset', new_assit_path, class:'btn btn-secondary' ,'data-bs-toggle':"modal" ,'data-bs-target':"#exampleModal" %>
-  <%= render "assits/form" %>
 <% end %>
