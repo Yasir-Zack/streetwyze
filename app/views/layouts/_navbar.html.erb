@@ -15,12 +15,15 @@
               <a class="nav-link" href="#">Surveys</a>
             </li>
             <li class="nav-item">
+              <%= link_to 'Create Asset', new_assit_path, class:'btn btn-dark' %>
+            </li>
+            <li class="nav-item">
               <%= link_to 'All Asset', assits_path, class:'btn btn-dark text-white'%>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Profile</a>
             </li>
-              <li class="nav-item">
+            <li class="nav-item">
               <%= button_to "Log out", destroy_user_session_path, method: :delete ,class:"nav-link  btn btn-dark text-white ",'aria-current':"page" %>
             </li>
           </ul>

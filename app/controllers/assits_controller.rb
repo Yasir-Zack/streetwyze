@@ -34,7 +34,9 @@ class AssitsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @assit = Assit.find(params[:id])
+  end
 
   def destroy
     @assit = Assit.find(params[:id])
