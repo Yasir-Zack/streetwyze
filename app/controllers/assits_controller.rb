@@ -44,9 +44,17 @@ class AssitsController < ApplicationController
     redirect_to @assit	
   end
 
+  def control_pannel
+    @result = PgSearch.multisearch(search_params.values)
+  end
+
   private
 
   def assit_params
     params.require(:assit).permit(:place, :address, :category, :story, :rating, :status, images: [])
+  end
+
+  def search_params
+    params.permit(:place, :address, :category, :status, :rating)
   end
 end

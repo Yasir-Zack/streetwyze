@@ -3,6 +3,6 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :assits
-  root 'home#index'
+  root 'assits#control_pannel'
   get 'edit', to: 'assits#edit'
 end
