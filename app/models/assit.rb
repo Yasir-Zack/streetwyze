@@ -7,7 +7,7 @@ class Assit < ApplicationRecord
   include PgSearch::Model
   multisearchable against: [:place, :address, :category, :rating, :status]
 
-  def thumbnail input
-    return self.images[input].variant(resize: '100x100!').processed
-  end 
+  def thumbnail(input)
+    images[input].variant(resize: '100x100!').processed
+  end
 end

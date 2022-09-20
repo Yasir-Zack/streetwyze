@@ -41,7 +41,7 @@ class AssitsController < ApplicationController
   def destroy
     @assit = Assit.find(params[:id])
     @assit.destroy
-    redirect_to @assit	
+    redirect_to @assit
   end
 
   def control_pannel
