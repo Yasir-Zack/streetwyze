@@ -1,26 +1,27 @@
+# frozen_string_literal: true
+
 class SurveysController < ApplicationController
-  def index
-  end
+  def index; end
 
   def new
     @survey = Survey.new
-  end 
+  end
 
-  def create 
+  def create
     @survey = Survey.new(survey_params)
     if @survey.save
       redirect_to @survey
-    else 
+    else
       render 'new'
-    end 
+    end
   end
 
-  def show 
+  def show
     @survey = Survey.find(params[:id])
-  end 
+  end
 
   private
-  
+
   def survey_params
     params.require(:survey).permit(:survey_title, :survey_script)
   end
