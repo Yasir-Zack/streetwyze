@@ -49,7 +49,7 @@ class AssitsController < ApplicationController
   end
 
   def control_pannel
-    @result = PgSearch.multisearch(search_params.values)
+    @result = PgSearch.multisearch(search_params.values).page(params[:page])
   end
 
   private

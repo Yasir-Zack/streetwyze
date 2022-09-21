@@ -26,12 +26,12 @@
                 Surveys
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">New Survey</a></li>
+                <li><%= link_to 'New Survey', new_survey_path, class:'btn btn-white text-dark'%></li>
                 <li><a class="dropdown-item" href="#">Survey Result</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+                <li><%= link_to 'Profile', edit_user_registration_path, class:'btn btn-dark text-white'%></li>
             </li>
             <li class="nav-item">
               <%= button_to "Log out", destroy_user_session_path, method: :delete ,class:"nav-link  btn btn-dark text-white ",'aria-current':"page" %>

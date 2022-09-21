@@ -1,0 +1,23 @@
+    <div class="container-fluid w-50 border rounded shadow mt-5 mb-3 p-4 text-center bg-secondary">
+<h1 class="h3 mb-3 fw-normal">New Survey</h1>
+      <%= form_with(model: @survey, local: true)  do |f| %>
+          <div class="field mb-3 text-start">
+          <%= f.label :Servay_Name %>
+          <%= f.text_field :survey_title, autofocus: true, class: "form-control"%>
+          </div>
+          
+          <div class="field mb-3 text-start">
+          <%= f.label :Survay_Script %>
+          <%= f.text_field :survey_script, autofocus: true, class: "form-control" %>
+          </div>
+
+          <div class="dropdown field mb-3 text-start">
+            <%= f.label :Add_Question %>
+            <%= f.select :category, options_for_select([['Simple', 'food'],['Multiple Choice', 'health'],['Smily Face', 'transportation']]), {include_blank:true}, class: "mx-0 form-select" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "publish", class:"btn btn-success text-white "%>
+          </div> 
+      <% end %>
+</div>

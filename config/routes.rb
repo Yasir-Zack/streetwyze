@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :assits
-  resources :survays
+  resources :surveys
   root 'assits#control_pannel'
   get 'edit', to: 'assits#edit'
 end
