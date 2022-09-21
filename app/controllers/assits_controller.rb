@@ -6,6 +6,10 @@ class AssitsController < ApplicationController
     @assit = Assit.new
 
     @assits = Assit.order('created_at DESC').page(params[:page])
+    respond_to do |format|
+      format.html
+      format.csv { send_data @assits.to_csv }
+    end  
   end
 
   def new
