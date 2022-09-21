@@ -1,0 +1,16 @@
+<div class="container-fluid w-50 border rounded shadow mt-5 mb-3 p-4 text-center">
+  <p class="display-5"> 
+    Place :<%= @assit.place %>
+  </p>
+  <p class="lead"> 
+    Address :<%= @assit.address %>
+  </p>
+  <hr class="my-4">
+  <p> Story : <%= @assit.story %></p>
+  <p> Rating: <%= @assit.rating %></p>
+  <p> Status: <%= @assit.status %></p>
+  <% (0...@assit.images.count).each do |image| %>
+  <%= image_tag (@assit.thumbnail(image)) %>
+  <% end %><br>
+  <%= link_to 'All Asset', assits_path, class:'btn btn-secondary mt-3'%>
+</div>

@@ -2,5 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  root 'home#index'
+  resources :assits
+  root 'assits#control_pannel'
+  get 'edit', to: 'assits#edit'
 end

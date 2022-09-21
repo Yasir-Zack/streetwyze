@@ -1,0 +1,50 @@
+<div class="container-fluid w-75 border rounded shadow mt-5 p-4 text-right text-white border bg-dark">
+  <%= form_with model: @assit, url: root_path, method: 'get', local: true do |f| %>
+    <h4>Find Asset</h4>
+    <div class="container text-center mb-3">
+      <div class="row row-cols-3">
+        <div class="col">
+          <div class="field mb-3 text-start">
+            <%= f.label :Place, class: "form-label" %>
+            <%= f.text_field :place, class: "form-control"%>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field mb-3 text-start">
+            <%= f.label :Address, class: "form-label" %>
+            <%= f.text_field :address, class:"form-control"%>
+          </div>
+        </div>
+        <div class="col">
+          <div class="dropdown field mb-3 text-start">
+            <%= f.label :Category, class: "form-label" %>
+            <%= f.select :category, options_for_select([['Art','art'],['Business', 'business'],['Child Care', 'child care'],['Education', 'education'],['Environment', 'environment'],['Food', 'food'],['Health', 'health'],['Housing', 'housing'],['Industry', 'industry'],['Safety', 'safety'],['Transportation', 'transportation']]), {include_blank:true}, class: "mx-0 form-select" %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="dropdown field mb-3 text-start">
+            <%= f.label :status, class: "form-label" %>
+            <%= f.text_field :status, class: "mx-0 form-select" %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="dropdown field mb-3 text-start">
+            <%= f.label :Rating, class: "form-label" %>
+            <%= f.select :rating, options_for_select([['1',1],['2', '2'],['3', '3'],['4', '4'],['5', '5']]), {include_blank:true}, class: "mx-0 form-select" %>
+          </div>
+        </div>
+        <div class="actions col-md-12 text-center mb-3">
+          <%= f.submit "Search", class: "btn btn-outline-success" %>
+          <%= link_to "Clear Filter", root_path, class: "btn btn-outline-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="container-fluid w-75 h-100 border rounded mt-5 p-5 text-right text-white border bg-dark ">
+  <h1> Search Result:</h1>
+  <% @result.each do |result| %>
+    <%= link_to result.searchable.category, assit_path(result.searchable) %>
+  <% end %>
+</div>
+<br>
