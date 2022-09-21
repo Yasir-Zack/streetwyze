@@ -1,6 +1,6 @@
-require 'csv'
-
 # frozen_string_literal: true
+
+require 'csv'
 
 class Assit < ApplicationRecord
   enum status: { good: 0, poor: 1, bad: 2 }

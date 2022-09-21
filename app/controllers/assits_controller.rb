@@ -9,7 +9,7 @@ class AssitsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @assits.to_csv }
-    end  
+    end
   end
 
   def new
