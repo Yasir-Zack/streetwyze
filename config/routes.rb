@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :assits
   resources :surveys
-  root 'assits#dash_board'
+  root 'assits#index'
   get 'edit', to: 'assits#edit'
 end

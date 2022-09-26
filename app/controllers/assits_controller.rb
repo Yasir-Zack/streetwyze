@@ -5,7 +5,17 @@ class AssitsController < ApplicationController
   before_action :find_assit, only: %i[show edit update destroy]
 
   def index
-    @assits = Assit.order('created_at DESC').page(params[:page])
+    @result = PgSearch.multisearch(search_params.values)
+
+    if @result.present?
+      @assits = Array.new
+
+      @result.each do |result|
+        @assits << result.searchable
+      end 
+    else  
+      @assits = Assit.order(created_at: :desc)
+    end  
 
     respond_to do |format|
       format.html
@@ -44,10 +54,6 @@ class AssitsController < ApplicationController
     @assit.destroy
 
     redirect_to @assit
-  end
-
-  def dash_board
-    @result = PgSearch.multisearch(search_params.values).page(params[:page])
   end
 
   private

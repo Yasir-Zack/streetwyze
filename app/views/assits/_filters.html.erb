@@ -1,5 +1,5 @@
-<div class="container-fluid w-75 border rounded shadow mt-5 p-4 text-right text-white border bg-dark">
-  <%= form_with model: @assit, url: root_path, method: 'get', local: true do |f| %>
+<div class="container-fluid w-75 border rounded shadow mt-5 mb-5 p-4 text-right text-white border bg-dark">
+  <%= form_with model: @assit, url: assits_path, method: 'get', local: true do |f| %>
     <h4>Find Asset</h4>
     <div class="container text-center mb-3">
       <div class="row row-cols-3">
@@ -35,24 +35,8 @@
         </div>
         <div class="actions col-md-12 text-center mb-3">
           <%= f.submit "Search", class: "btn btn-outline-success" %>
-          <%= link_to "Clear Filter", root_path, class: "btn btn-outline-primary" %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-<div class="container-fluid w-75 h-100 border rounded mt-5 p-5 text-right text-white border bg-dark ">
-  <h3> Search Results:</h3><br>
-  <% @result.each do |result| %>
-    <p>Place :<%= link_to result.searchable.place, assit_path(result.searchable) %></p>
-    <p>Adress :<%= link_to result.searchable.address, assit_path(result.searchable) %></p>
-    <p>Rating :<%= link_to result.searchable.rating, assit_path(result.searchable) %></p>
-    <p>Category :<%= link_to result.searchable.category, assit_path(result.searchable) %></p>
-    <p>Status :<%= link_to result.searchable.status, assit_path(result.searchable) %></p>
-    <hr class="my-4">
-  <% end %>
-  <div>
-    <%= paginate @result %>
-  </div>
-</div>
-<br>
