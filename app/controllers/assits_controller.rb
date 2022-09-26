@@ -2,10 +2,11 @@
 
 # Assits Controller
 class AssitsController < ApplicationController
-  def index
-    @assit = Assit.new
+  before_action :find_assit, only: %i[show edit update destroy]
 
+  def index
     @assits = Assit.order('created_at DESC').page(params[:page])
+
     respond_to do |format|
       format.html
       format.csv { send_data @assits.to_csv }
@@ -18,6 +19,7 @@ class AssitsController < ApplicationController
 
   def create
     @assit = Assit.new(assit_params)
+
     if @assit.save
       redirect_to @assit
     else
@@ -25,34 +27,34 @@ class AssitsController < ApplicationController
     end
   end
 
-  def show
-    @assit = Assit.find(params[:id])
-  end
+  def show; end
 
   def update
-    @assit = Assit.find(params[:id])
     if @assit.update(assit_params)
+      
       redirect_to @assit
     else
       render 'edit'
     end
   end
 
-  def edit
-    @assit = Assit.find(params[:id])
-  end
+  def edit; end
 
   def destroy
-    @assit = Assit.find(params[:id])
     @assit.destroy
+
     redirect_to @assit
   end
 
-  def control_pannel
-    @result = PgSearch.multisearch(search_params.values)
+  def dash_board
+    @result = PgSearch.multisearch(search_params.values).page(params[:page])
   end
 
   private
+
+  def find_assit
+    @assit = Assit.find(params[:id])
+  end 
 
   def assit_params
     params.require(:assit).permit(:place, :address, :category, :story, :rating, :status, images: [])

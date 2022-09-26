@@ -1,4 +1,5 @@
 <h1 class="h2 mb-3 fw-normal text-center">All Assets</h1>
+<%= render "assits/listing" %>
 <div class="actions col-md-12 text-center mb-3">
   <%= link_to "Export CSV", assits_path(format: :csv), class:"btn btn-secondary w-50" %>
 </div>
@@ -20,8 +21,4 @@
       <% end %>
     </tbody>
   </table>
-
-  <div>
-    <%= paginate @assits %>
-  </div>
 </div>  
