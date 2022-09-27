@@ -1,5 +1,5 @@
 <h1 class="h2 mb-3 fw-normal text-center">All Assets</h1>
-<%= render "assits/listing" %>
+<%= render "filters" %>
 <div class="actions col-md-12 text-center mb-3">
   <%= link_to "Export CSV", assits_path(format: :csv), class:"btn btn-secondary w-50" %>
 </div>
@@ -8,17 +8,21 @@
     <tbody>
       <% @assits.each do |assit| %>
         <tr><h3 class="display-4"> Place : <%= assit.place %></h3></tr>
-        <tr><p class="lead"> Address : <%= assit.address %></p></tr>
+        <tr><p class= "lead"> Address : <%= assit.address %></p></tr>
         <tr><p> Story : <%= assit.story %></p></tr>
         <tr><p> Rating: <%= assit.rating %></p></tr>
+        <tr><p> Category: <%= assit.category %></p></tr>
         <tr><p> Status: <%= assit.status %></p></tr>
         <tr>
-        <%= button_to "Delete Asset", assit_path(assit), method: :delete, class: "btn btn-secondary" %> |
-        <%= link_to "Edit Asset",edit_assit_path(assit),class: "btn btn-secondary" %> |
-        <%= link_to "Read Asset", assit_path(assit),class:"btn btn-secondary"%>
+        <%= button_to "Delete Asset", assit_path(assit), method: :delete, class: "btn btn-danger" %> |
+        <%= link_to "Edit Asset",edit_assit_path(assit),class: "btn btn-warning" %> |
+        <%= link_to "Read Asset", assit_path(assit),class:"btn btn-primary"%>
         </tr>
         <hr class="my-4">
       <% end %>
     </tbody>
   </table>
+  <div>
+    <%= paginate @assits %>
+  </div> 
 </div>  
