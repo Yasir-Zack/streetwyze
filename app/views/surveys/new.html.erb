@@ -11,11 +11,6 @@
           <%= f.text_field :survey_script, autofocus: true, class: "form-control" %>
           </div>
 
-          <div class="dropdown field mb-3 text-start">
-            <%= f.label :Add_Question %>
-            <%= f.select :category, options_for_select([['Simple', 'food'],['Multiple Choice', 'health'],['Smily Face', 'transportation']]), {include_blank:true}, class: "mx-0 form-select" %>
-          </div>
-
           <div class="actions">
             <%= f.submit "publish", class:"btn btn-success text-white "%>
           </div> 

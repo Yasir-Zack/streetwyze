@@ -12,9 +12,10 @@ class AssitsController < ApplicationController
 
       @result.each do |result|
         @assits << result.searchable
+        @assits =  Kaminari.paginate_array(@assits).page(params[:page])
       end 
     else  
-      @assits = Assit.order(created_at: :desc)
+      @assits = Assit.order(created_at: :desc).page(params[:page])
     end  
 
     respond_to do |format|
